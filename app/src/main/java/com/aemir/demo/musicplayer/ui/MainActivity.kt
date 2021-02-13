@@ -1,7 +1,8 @@
-package com.aemir.demo.musicplayer
+package com.aemir.demo.musicplayer.ui
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import com.aemir.demo.musicplayer.R
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
