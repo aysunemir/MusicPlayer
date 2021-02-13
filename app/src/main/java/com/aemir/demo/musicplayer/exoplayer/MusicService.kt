@@ -12,6 +12,7 @@ import com.aemir.demo.musicplayer.exoplayer.callbacks.MusicPlaybackPreparer
 import com.aemir.demo.musicplayer.exoplayer.callbacks.MusicPlayerEventListener
 import com.aemir.demo.musicplayer.exoplayer.callbacks.MusicPlayerNotificationListener
 import com.aemir.demo.musicplayer.other.Constants.MEDIA_ROOT_ID
+import com.aemir.demo.musicplayer.other.Constants.NETWORK_ERROR
 import com.google.android.exoplayer2.Player
 import com.google.android.exoplayer2.SimpleExoPlayer
 import com.google.android.exoplayer2.ext.mediasession.MediaSessionConnector
@@ -156,6 +157,7 @@ class MusicService : MediaBrowserServiceCompat() {
                             isPlayerInitialized = true
                         }
                     } else {
+                        mediaSession.sendSessionEvent(NETWORK_ERROR, null)
                         result.sendResult(null)
                     }
                 }
