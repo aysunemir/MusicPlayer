@@ -3,19 +3,15 @@ package com.aemir.demo.musicplayer.adapters
 import android.view.View
 import com.aemir.demo.musicplayer.R
 import com.aemir.demo.musicplayer.data.entities.Song
-import com.aemir.demo.musicplayer.databinding.ListItemBinding
-import com.bumptech.glide.RequestManager
+import com.aemir.demo.musicplayer.databinding.SwipeItemBinding
 import javax.inject.Inject
 
-class SongAdapter @Inject constructor(
-    private val glide: RequestManager
-) : BaseSongAdapter(R.layout.list_item) {
+class SwipeSongAdapter @Inject constructor() : BaseSongAdapter(R.layout.swipe_item) {
 
     override fun bindSong(view: View, song: Song) {
-        ListItemBinding.bind(view).apply {
-            tvPrimary.text = song.title
-            tvSecondary.text = song.subtitle
-            glide.load(song.imageUrl).into(ivItemImage)
+        SwipeItemBinding.bind(view).apply {
+            val text = "${song.title} - ${song.subtitle}"
+            tvPrimary.text = text
 
             root.setOnClickListener {
                 onItemClickListener?.let { click ->
