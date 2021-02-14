@@ -33,6 +33,7 @@ class MusicPlayerNotificationListener(
                     Intent(applicationContext, this::class.java)
                 )
                 startForeground(NOTIFICATION_ID, notification)
+                isForegroundService = true
             }
         }
     }
