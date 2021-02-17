@@ -103,4 +103,7 @@ dependencies {
     api "com.google.android.exoplayer:exoplayer-core:2.11.8"
     api "com.google.android.exoplayer:exoplayer-ui:2.11.8"
     api "com.google.android.exoplayer:extension-mediasession:2.11.8"
+
+    // Leak Canary
+    debugImplementation 'com.squareup.leakcanary:leakcanary-android:2.6'
 }

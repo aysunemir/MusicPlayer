@@ -24,7 +24,8 @@ import javax.inject.Inject
 @AndroidEntryPoint
 class SongFragment : Fragment(R.layout.fragment_song) {
 
-    private lateinit var binding: FragmentSongBinding
+    private var _binding: FragmentSongBinding? = null
+    private val binding: FragmentSongBinding get() = _binding!!
     private val mainViewModel: MainViewModel by activityViewModels()
     private val songViewModel: SongViewModel by viewModels()
 
@@ -39,7 +40,7 @@ class SongFragment : Fragment(R.layout.fragment_song) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding = FragmentSongBinding.bind(view)
+        _binding = FragmentSongBinding.bind(view)
         subscribeToObservers()
 
         binding.apply {
@@ -141,6 +142,11 @@ class SongFragment : Fragment(R.layout.fragment_song) {
     private fun setCurPlayerTimeToTextView(ms: Long) {
         val dateFormat = SimpleDateFormat("mm:ss", Locale.getDefault())
         binding.tvCurTime.text = dateFormat.format(ms)
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        _binding = null
     }
 
 }

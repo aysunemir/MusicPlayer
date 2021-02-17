@@ -16,7 +16,8 @@ import javax.inject.Inject
 @AndroidEntryPoint
 class HomeFragment : Fragment(R.layout.fragment_home) {
 
-    private lateinit var binding: FragmentHomeBinding
+    private var _binding: FragmentHomeBinding? = null
+    private val binding: FragmentHomeBinding get() = _binding!!
     private val mainViewModel: MainViewModel by activityViewModels()
 
     @Inject
@@ -24,7 +25,7 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding = FragmentHomeBinding.bind(view)
+        _binding = FragmentHomeBinding.bind(view)
         setupRecyclerView()
         subscribeToObservers()
         songAdapter.setItemClickListener {
@@ -49,6 +50,12 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
                 Status.LOADING -> binding.allSongsProgressBar.isVisible = true
             }
         })
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        binding.rvAllSongs.adapter = null
+        _binding = null
     }
 
 }
