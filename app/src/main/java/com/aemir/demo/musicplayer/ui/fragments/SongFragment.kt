@@ -54,6 +54,10 @@ class SongFragment : Fragment(R.layout.fragment_song) {
                 mainViewModel.skipToNextSong()
             }
 
+            ivSkipPrevious.setOnClickListener {
+                mainViewModel.skipToPreviousSong()
+            }
+
             seekBar.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
                 override fun onProgressChanged(
                     seekBar: SeekBar?,
