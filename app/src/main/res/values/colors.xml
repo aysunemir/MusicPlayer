@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#08FF04</color>
-    <color name="colorPrimaryDark">#3700B3</color>
-    <color name="colorAccent">#08FF04</color>
-    <color name="mediumDarkBackground">#303030</color>
-    <color name="darkBackground">#202020</color>
-    <color name="lightBackground">#404040</color>
+    <color name="purple">#3700b3</color>
+    <color name="purple_light">#733ae6</color>
+    <color name="purple_dark">#000082</color>
+    <color name="green">#08ff04</color>
+    <color name="white">#fff</color>
+    <color name="gray_dark">#202020</color>
 </resources>
